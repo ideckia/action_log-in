@@ -45,17 +45,17 @@ class LogIn extends IdeckiaAction {
 		return super.init(initialState);
 	}
 
-	public function execute(currentState:ItemState):js.lib.Promise<ItemState> {
+	public function execute(currentState:ItemState):js.lib.Promise<ActionOutcome> {
 		return new js.lib.Promise((resolve, reject) -> {
 			if (passwordAction == null) {
-				resolve(currentState);
+				resolve(new ActionOutcome({state: currentState}));
 				return;
 			}
 
 			inline function writePassword(state) {
 				haxe.Timer.delay(() -> {
 					passwordAction.execute(state).then(passwordState -> {
-						enterAction.execute(passwordState).then(enterState -> {
+						enterAction.execute(passwordState.state).then(enterState -> {
 							resolve(enterState);
 						});
 					});
@@ -64,8 +64,8 @@ class LogIn extends IdeckiaAction {
 
 			if (props.username != '') {
 				usernameAction.execute(currentState).then(usernameState -> {
-					tabAction.execute(usernameState).then(tabState -> {
-						writePassword(tabState);
+					tabAction.execute(usernameState.state).then(tabState -> {
+						writePassword(tabState.state);
 					});
 				});
 			} else {
