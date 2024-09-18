@@ -1,0 +1,30 @@
+[
+	{
+		"id": "action_descriptor",
+		"text": "Writes the given username and password for login (action 'keyboard' [http://github.com/ideckia/action_keyboard] required)"
+	},
+	{
+		"id": "prop_username",
+		"text": "The user name."
+	},
+	{
+		"id": "prop_password",
+		"text": "The password."
+	},
+	{
+		"id": "prop_key_after_user",
+		"text": "Writes 'username'->key_after_user->'password'->'enter'."
+	},
+	{
+		"id": "prop_user_pass_delay",
+		"text": "Milliseconds to wait between username and password."
+	},
+	{
+		"id": "error_title",
+		"text": "Log-in ekintzan errorea"
+	},
+	{
+		"id": "error_body",
+		"text": "Could not load the action [keyboar] from actions folder. You can download it from https://github.com/ideckia/action_keyboard/releases"
+	}
+]

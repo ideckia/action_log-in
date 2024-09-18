@@ -1,0 +1,30 @@
+[
+	{
+		"id": "action_descriptor",
+		"text": "Emandako erabiltzaile eta pasahitza idazten ditu login egiteko ('keyboard' [http://github.com/ideckia/action_keyboard] ekintza beharrezkoa)"
+	},
+	{
+		"id": "prop_username",
+		"text": "Erabiltzaile izena."
+	},
+	{
+		"id": "prop_password",
+		"text": "Pasahitza."
+	},
+	{
+		"id": "prop_key_after_user",
+		"text": "Hau idatziko da: 'erabiltzailea'->key_after_user->'pasahitza'->'enter'."
+	},
+	{
+		"id": "prop_user_pass_delay",
+		"text": "Erabiltzailea eta pasahitzaren artean itxaroteko milisegundo kopurua."
+	},
+	{
+		"id": "error_title",
+		"text": "Log-in action error"
+	},
+	{
+		"id": "error_body",
+		"text": "Ezin izan da [keyboard] ekitzan kargatu. Hemendik deskarga dezakezu https://github.com/ideckia/action_keyboard/releases"
+	}
+]

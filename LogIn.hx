@@ -3,18 +3,19 @@ package;
 using api.IdeckiaApi;
 
 typedef Props = {
-	@:editable("The user name", '')
+	@:editable("prop_username", '')
 	var username:String;
-	@:editable("The password", "12345")
+	@:editable("prop_password", "12345")
 	var password:String;
-	@:editable("Writes 'username'->key_after_user->'password'->'enter'", 'tab', ['tab', 'enter'])
+	@:editable("prop_key_after_user", 'tab', ['tab', 'enter'])
 	var key_after_user:String;
-	@:editable("Milliseconds to wait between username and password", 0)
+	@:editable("prop_user_pass_delay", 0)
 	var user_pass_delay:UInt;
 }
 
 @:name("log-in")
-@:description("Writes the given username and password for login (action 'keyboard'[http://github.com/ideckia/action_keyboard] required)")
+@:description("action_descriptor")
+@:localize
 class LogIn extends IdeckiaAction {
 	var usernameAction:ActionKeyboard;
 	var tabAction:ActionKeyboard;
@@ -24,11 +25,10 @@ class LogIn extends IdeckiaAction {
 	function createKeyboardAction(_props:Any) {
 		try {
 			var action = new ActionKeyboard();
-			action.setup(_props, server);
+			action.setup(_props, core);
 			return action;
 		} catch (e:Any) {
-			server.dialog.error('Log-in action',
-				'Could not load the action "keyboard" from actions folder. You can download it from https://github.com/ideckia/action_keyboard/releases/tag/v1.0.0');
+			core.dialog.error(Loc.error_title.tr(), Loc.error_body.tr());
 
 			return null;
 		}
