@@ -25,6 +25,6 @@
 	},
 	{
 		"id": "error_body",
-		"text": "Could not load the action [keyboar] from actions folder. You can download it from https://github.com/ideckia/action_keyboard/releases"
+		"text": "Could not load the action [keyboard] from actions folder. You can download it from https://github.com/ideckia/action_keyboard/releases"
 	}
 ]

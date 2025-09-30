@@ -20,7 +20,6 @@ class LogIn extends IdeckiaAction {
 	var usernameAction:ActionKeyboard;
 	var tabAction:ActionKeyboard;
 	var passwordAction:ActionKeyboard;
-	var enterAction:ActionKeyboard;
 
 	function createKeyboardAction(_props:Any) {
 		try {
@@ -39,8 +38,7 @@ class LogIn extends IdeckiaAction {
 			usernameAction = createKeyboardAction({type_string: props.username});
 			tabAction = createKeyboardAction({key_to_tap: props.key_after_user});
 		}
-		passwordAction = createKeyboardAction({type_string: props.password});
-		enterAction = createKeyboardAction({key_to_tap: 'enter'});
+		passwordAction = createKeyboardAction({type_string: props.password, press_enter_after_text: true});
 
 		return super.init(initialState);
 	}
@@ -55,9 +53,7 @@ class LogIn extends IdeckiaAction {
 			inline function writePassword(state) {
 				haxe.Timer.delay(() -> {
 					passwordAction.execute(state).then(passwordState -> {
-						enterAction.execute(passwordState.state).then(enterState -> {
-							resolve(enterState);
-						});
+						resolve(passwordState);
 					});
 				}, props.user_pass_delay);
 			}
