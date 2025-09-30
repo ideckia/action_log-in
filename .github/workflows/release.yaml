@@ -12,7 +12,7 @@ jobs:
 
     env:
       CMD_NAME: log-in
-      HAXE_VERSION: latest
+      HAXE_VERSION: 4.2.4
       NODE_VERSION: 16
 
     steps:
